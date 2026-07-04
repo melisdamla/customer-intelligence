@@ -21,6 +21,17 @@ This project helps answer:
 
 The platform generates a realistic 15,000-customer dataset, trains churn models, estimates CLV, assigns business-readable customer segments, produces SHAP-style explanations, recommends next-best actions, stores outputs in SQLite, exposes them through FastAPI, and visualizes the intelligence in a React dashboard.
 
+## Screenshots
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 15 04 21" src="https://github.com/user-attachments/assets/b77fadbf-6b8c-481c-bfce-af64c0e435a5" />
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 14 59 59" src="https://github.com/user-attachments/assets/0f40dd66-b20f-476b-9d9d-13b179d9a459" />
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 14 59 51" src="https://github.com/user-attachments/assets/46d4ee17-ed10-4062-9a40-46235fe0f245" />
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 14 59 43" src="https://github.com/user-attachments/assets/3b55cf0a-ab03-4101-8462-cb10bd6b1cc8" />
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 14 59 35" src="https://github.com/user-attachments/assets/4974c4b2-0be3-4ff0-83fb-fbc53ae387e4" />
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 14 59 07" src="https://github.com/user-attachments/assets/ca9bd9de-039e-42df-9017-c1e9b0cdb545" />
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 14 59 00" src="https://github.com/user-attachments/assets/1d1d3569-24b8-4cef-a426-de021d379a40" />
+<img width="1720" height="811" alt="Screenshot 2026-07-04 at 14 53 37" src="https://github.com/user-attachments/assets/00271723-0aa4-4ef1-acad-7240e685ef6d" />
+
+
 ## Key Features
 
 - Synthetic customer dataset with engagement, revenue, support, payment, renewal, sentiment, and marketing behavior
