@@ -14,6 +14,7 @@ export function ModelPerformancePage() {
 
   const main = performance.main_xgboost_model ?? {};
   const baseline = performance.baseline_logistic_regression ?? {};
+  const confusionMatrix = normalizeMatrix(main.confusion_matrix);
   const maxImportance = Math.max(...importance.map((item) => item.importance), 1);
 
   return (
@@ -52,9 +53,7 @@ export function ModelPerformancePage() {
               ))}
             </tbody>
           </table>
-          <div className="mt-5 rounded bg-cloud p-4 text-sm text-graphite">
-            Confusion matrix: {JSON.stringify(main.confusion_matrix ?? [])}
-          </div>
+          <ConfusionMatrix matrix={confusionMatrix} threshold={main.threshold} />
         </div>
       </section>
     </main>
@@ -71,5 +70,50 @@ function Metric({ label, value }: { label: string; value: string }) {
       <p className="text-sm text-graphite">{label}</p>
       <p className="mt-2 text-2xl font-semibold text-ink">{value}</p>
     </section>
+  );
+}
+
+function normalizeMatrix(value: unknown): number[][] {
+  if (!Array.isArray(value) || value.length !== 2) {
+    return [[0, 0], [0, 0]];
+  }
+  return value.map((row) => Array.isArray(row) ? row.map((cell) => Number(cell) || 0).slice(0, 2) : [0, 0]);
+}
+
+function ConfusionMatrix({ matrix, threshold }: { matrix: number[][]; threshold: unknown }) {
+  const [[trueNegative, falsePositive], [falseNegative, truePositive]] = matrix;
+  return (
+    <section className="mt-5 rounded-lg border border-line bg-cloud p-4">
+      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="font-semibold text-ink">Confusion Matrix</h3>
+        <span className="text-xs font-medium text-graphite">Decision threshold: {display(threshold)}</span>
+      </div>
+      <div className="mt-4 grid grid-cols-[92px_repeat(2,minmax(96px,1fr))] gap-2 text-center text-sm">
+        <div />
+        <div className="rounded-md bg-white px-2 py-2 font-semibold text-graphite">Predicted 0</div>
+        <div className="rounded-md bg-white px-2 py-2 font-semibold text-graphite">Predicted 1</div>
+        <div className="flex items-center justify-center rounded-md bg-white px-2 py-2 font-semibold text-graphite">Actual 0</div>
+        <MatrixCell label="True Negative" value={trueNegative} tone="success" />
+        <MatrixCell label="False Positive" value={falsePositive} tone="warning" />
+        <div className="flex items-center justify-center rounded-md bg-white px-2 py-2 font-semibold text-graphite">Actual 1</div>
+        <MatrixCell label="False Negative" value={falseNegative} tone="risk" />
+        <MatrixCell label="True Positive" value={truePositive} tone="success" />
+      </div>
+      <p className="mt-3 text-xs text-graphite">Format: [[TN, FP], [FN, TP]] = {JSON.stringify(matrix)}</p>
+    </section>
+  );
+}
+
+function MatrixCell({ label, value, tone }: { label: string; value: number; tone: "success" | "warning" | "risk" }) {
+  const toneClass = {
+    success: "bg-[#EAF4F4] text-teal",
+    warning: "bg-[#FFF4D8] text-amber",
+    risk: "bg-[#FBE9E4] text-coral"
+  };
+  return (
+    <div className={`rounded-md px-3 py-3 ${toneClass[tone]}`}>
+      <p className="text-xs font-medium">{label}</p>
+      <p className="mt-1 text-xl font-semibold">{value.toLocaleString()}</p>
+    </div>
   );
 }
