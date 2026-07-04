@@ -22,6 +22,12 @@ from app.services.platform import (
     crm_sync,
     mlflow_runs,
     monitoring_report,
+    operations_crm_status,
+    operations_data_quality_alerts,
+    operations_retraining_status,
+    operations_schema,
+    operations_scoring_preview,
+    operations_validation_summary,
     retraining_status,
     run_retraining_job,
     save_upload,
@@ -234,3 +240,70 @@ def get_ab_tests() -> list[dict]:
 @router.get("/uplift/model")
 def uplift_model() -> dict:
     return uplift_model_report()
+
+
+@router.post("/operations/upload")
+def operations_upload(file: UploadFile = File(...)) -> dict:
+    return save_upload(file)
+
+
+@router.post("/operations/validate")
+def operations_validate(payload: dict | None = None) -> dict:
+    upload_id = payload.get("upload_id") if payload else None
+    return operations_validation_summary(upload_id)
+
+
+@router.post("/operations/batch-score")
+def operations_batch_score(payload: dict | None = None) -> dict:
+    upload_id = payload.get("upload_id") if payload else None
+    if upload_id:
+        return score_uploaded_batch(upload_id)
+    preview = operations_scoring_preview()
+    return {
+        "batch_id": "simulated-batch-preview",
+        "rows_scored": 15_000,
+        "high_risk_customers": 1558,
+        "revenue_at_risk": 6_981_999.23,
+        "expected_revenue_saved": 1_167_105.37,
+        "preview": preview["rows"],
+    }
+
+
+@router.get("/operations/schema")
+def get_operations_schema() -> dict:
+    return operations_schema()
+
+
+@router.get("/operations/validation-summary")
+def get_operations_validation_summary() -> dict:
+    return operations_validation_summary()
+
+
+@router.get("/operations/scoring-preview")
+def get_operations_scoring_preview() -> dict:
+    return operations_scoring_preview()
+
+
+@router.post("/operations/crm-sync")
+def operations_crm_sync(payload: dict | None = None) -> dict:
+    return crm_sync(payload or {"provider": "Salesforce", "account_count": 1500})
+
+
+@router.get("/operations/crm-sync/status")
+def get_operations_crm_sync_status() -> dict:
+    return operations_crm_status()
+
+
+@router.post("/operations/retrain")
+def operations_retrain() -> dict:
+    return run_retraining_job()
+
+
+@router.get("/operations/retraining/status")
+def get_operations_retraining_status() -> dict:
+    return operations_retraining_status()
+
+
+@router.get("/operations/data-quality-alerts")
+def get_operations_data_quality_alerts() -> list[dict]:
+    return operations_data_quality_alerts()

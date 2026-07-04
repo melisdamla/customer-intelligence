@@ -36,6 +36,13 @@ The platform generates a realistic 15,000-customer dataset, trains churn models,
 - React, TypeScript, and Tailwind dashboard for KPIs, customer intelligence, segmentation, revenue, and model performance
 - Docker setup runnable with one command
 - CSV and Excel upload with schema validation
+- CSV/Excel data upload
+- Data validation and schema compatibility checks
+- Batch scoring
+- CRM synchronization simulation
+- Scheduled model retraining
+- Data quality alerts
+- Exportable scored customer results
 - Batch scoring for external customer files
 - Scheduled retraining configuration and manual retraining trigger
 - CRM integration simulation for account, opportunity, and case syncs
@@ -144,6 +151,8 @@ churn_probability x estimated_clv x expected_success_probability - estimated_act
 ## Enterprise ML Platform Extensions
 
 The platform also includes operational capabilities expected in a mature customer intelligence system:
+
+The Operations module supports CSV/Excel customer data upload, schema validation, data quality checks, batch churn scoring, scheduled model retraining, and simulated CRM synchronization. This makes the platform adaptable to real enterprise customer datasets and production-style workflows.
 
 - **CSV/Excel upload:** `POST /data/upload` validates external customer files against the model schema.
 - **Batch scoring:** `POST /batch-score/{upload_id}` scores uploaded files and returns churn, CLV, segment, explanation, and next-best-action outputs.

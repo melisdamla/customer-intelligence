@@ -65,5 +65,50 @@ export const api = {
     if (!response.ok) throw new Error(`A/B test analysis failed: ${response.status}`);
     return response.json() as Promise<Record<string, unknown>>;
   },
-  upliftModel: () => request<Record<string, unknown>>("/uplift/model")
+  upliftModel: () => request<Record<string, unknown>>("/uplift/model"),
+  operationsUpload: async (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    const response = await fetch(`${API_BASE}/operations/upload`, { method: "POST", body: formData });
+    if (!response.ok) throw new Error(`Operations upload failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  operationsValidate: async (payload: Record<string, unknown>) => {
+    const response = await fetch(`${API_BASE}/operations/validate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Operations validation failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  operationsBatchScore: async (payload: Record<string, unknown>) => {
+    const response = await fetch(`${API_BASE}/operations/batch-score`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Operations batch scoring failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  operationsSchema: () => request<Record<string, unknown>>("/operations/schema"),
+  operationsValidationSummary: () => request<Record<string, unknown>>("/operations/validation-summary"),
+  operationsScoringPreview: () => request<Record<string, unknown>>("/operations/scoring-preview"),
+  operationsCrmSync: async (payload: Record<string, unknown>) => {
+    const response = await fetch(`${API_BASE}/operations/crm-sync`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Operations CRM sync failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  operationsCrmStatus: () => request<Record<string, unknown>>("/operations/crm-sync/status"),
+  operationsRetrain: async () => {
+    const response = await fetch(`${API_BASE}/operations/retrain`, { method: "POST" });
+    if (!response.ok) throw new Error(`Operations retraining failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  operationsRetrainingStatus: () => request<Record<string, unknown>>("/operations/retraining/status"),
+  operationsDataQualityAlerts: () => request<Record<string, string>[]>("/operations/data-quality-alerts")
 };
