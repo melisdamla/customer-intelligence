@@ -1,0 +1,22 @@
+{
+  "monthly_revenue": {
+    "mean": 243.452446,
+    "std": 298.444597
+  },
+  "engagement_score": {
+    "mean": 29.797819,
+    "std": 10.432822
+  },
+  "support_pressure_score": {
+    "mean": 47.13848,
+    "std": 28.684206
+  },
+  "satisfaction_score": {
+    "mean": 7.403733,
+    "std": 1.6029
+  },
+  "churn_probability": {
+    "mean": 0.187432,
+    "std": 0.230556
+  }
+}

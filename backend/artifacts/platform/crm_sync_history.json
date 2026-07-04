@@ -1,0 +1,16 @@
+[
+  {
+    "sync_id": "crm-31a533f68f",
+    "provider": "Salesforce",
+    "objects": [
+      "accounts",
+      "opportunities",
+      "support_cases"
+    ],
+    "accounts_received": 1500,
+    "accounts_matched": 1455,
+    "match_rate": 0.97,
+    "status": "completed",
+    "synced_at": "2026-07-04T12:14:34.543217+00:00"
+  }
+]

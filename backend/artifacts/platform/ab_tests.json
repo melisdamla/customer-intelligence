@@ -1,0 +1,15 @@
+[
+  {
+    "experiment_id": "exp-1cc1d02df8",
+    "name": "Retention test",
+    "control_retention_rate": 0.72,
+    "treatment_retention_rate": 0.78,
+    "absolute_uplift": 0.06,
+    "relative_uplift": 0.0833,
+    "incremental_customers_retained": 72.0,
+    "incremental_revenue": 236400.0,
+    "z_score": 3.394,
+    "decision": "ship treatment",
+    "created_at": "2026-07-04T12:14:34.544216+00:00"
+  }
+]

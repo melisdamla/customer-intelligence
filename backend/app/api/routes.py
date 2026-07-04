@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
 from sqlalchemy.orm import Session
 
 from app.database import get_db
@@ -13,6 +13,20 @@ from app.services.intelligence import (
     model_performance,
     revenue_at_risk,
     segment_summary,
+)
+from app.services.platform import (
+    ab_test_history,
+    analyze_ab_test,
+    configure_retraining,
+    crm_history,
+    crm_sync,
+    mlflow_runs,
+    monitoring_report,
+    retraining_status,
+    run_retraining_job,
+    save_upload,
+    score_uploaded_batch,
+    uplift_model_report,
 )
 
 router = APIRouter()
@@ -156,3 +170,67 @@ def importance() -> list[dict]:
 @router.get("/revenue-at-risk")
 def risk(db: Session = Depends(get_db)) -> dict:
     return revenue_at_risk(db)
+
+
+@router.post("/data/upload")
+def upload_customer_data(file: UploadFile = File(...)) -> dict:
+    return save_upload(file)
+
+
+@router.post("/batch-score/{upload_id}")
+def batch_score(upload_id: str) -> dict:
+    return score_uploaded_batch(upload_id)
+
+
+@router.get("/retraining/schedule")
+def get_retraining_schedule() -> dict:
+    return retraining_status()
+
+
+@router.post("/retraining/schedule")
+def set_retraining_schedule(payload: dict) -> dict:
+    return configure_retraining(
+        cadence=payload.get("cadence", "weekly"),
+        lookback_days=int(payload.get("lookback_days", 90)),
+        metric_guardrail=float(payload.get("metric_guardrail_roc_auc", 0.78)),
+    )
+
+
+@router.post("/retraining/run")
+def run_retraining() -> dict:
+    return run_retraining_job()
+
+
+@router.post("/integrations/crm/sync")
+def sync_crm(payload: dict) -> dict:
+    return crm_sync(payload)
+
+
+@router.get("/integrations/crm/syncs")
+def crm_syncs() -> list[dict]:
+    return crm_history()
+
+
+@router.get("/monitoring/model")
+def model_monitoring() -> dict:
+    return monitoring_report()
+
+
+@router.get("/mlflow/runs")
+def get_mlflow_runs() -> list[dict]:
+    return mlflow_runs()
+
+
+@router.post("/experiments/ab-tests")
+def create_ab_test(payload: dict) -> dict:
+    return analyze_ab_test(payload)
+
+
+@router.get("/experiments/ab-tests")
+def get_ab_tests() -> list[dict]:
+    return ab_test_history()
+
+
+@router.get("/uplift/model")
+def uplift_model() -> dict:
+    return uplift_model_report()

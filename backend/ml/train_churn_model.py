@@ -113,6 +113,12 @@ def run_pipeline(n_customers: int = 15_000) -> None:
     scored = recommend_actions(scored)
     scored.to_csv(DATA_DIR / "customer_intelligence.csv", index=False)
     summarize_segments(scored).to_csv(DATA_DIR / "segment_summary.csv", index=False)
+    baseline_columns = ["monthly_revenue", "engagement_score", "support_pressure_score", "satisfaction_score", "churn_probability"]
+    baseline_stats = {
+        column: {"mean": round(float(scored[column].mean()), 6), "std": round(float(scored[column].std()), 6)}
+        for column in baseline_columns
+    }
+    (ARTIFACTS_DIR / "baseline_stats.json").write_text(json.dumps(baseline_stats, indent=2))
     print("Pipeline complete")
     print(json.dumps(metrics, indent=2))
 

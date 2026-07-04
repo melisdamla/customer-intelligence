@@ -1,7 +1,9 @@
-import { BarChart3, BrainCircuit, LayoutDashboard, LineChart, UsersRound } from "lucide-react";
+import { BarChart3, BrainCircuit, FlaskConical, LayoutDashboard, LineChart, Settings2, UsersRound } from "lucide-react";
 import { useState } from "react";
 import { Dashboard } from "./pages/Dashboard";
+import { Experimentation } from "./pages/Experimentation";
 import { ModelPerformancePage } from "./pages/ModelPerformance";
+import { Operations } from "./pages/Operations";
 import { Revenue } from "./pages/Revenue";
 import { Segmentation } from "./pages/Segmentation";
 
@@ -9,7 +11,9 @@ const tabs = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
   { id: "segments", label: "Segments", icon: UsersRound },
   { id: "revenue", label: "Revenue", icon: LineChart },
-  { id: "model", label: "Model", icon: BrainCircuit }
+  { id: "model", label: "Model", icon: BrainCircuit },
+  { id: "operations", label: "Operations", icon: Settings2 },
+  { id: "experiments", label: "Experiments", icon: FlaskConical }
 ] as const;
 
 type Tab = (typeof tabs)[number]["id"];
@@ -51,6 +55,8 @@ export default function App() {
       {active === "segments" && <Segmentation />}
       {active === "revenue" && <Revenue />}
       {active === "model" && <ModelPerformancePage />}
+      {active === "operations" && <Operations />}
+      {active === "experiments" && <Experimentation />}
     </div>
   );
 }

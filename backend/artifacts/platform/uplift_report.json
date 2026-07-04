@@ -1,0 +1,148 @@
+{
+  "model_type": "two-model-inspired business uplift proxy",
+  "generated_at": "2026-07-04T12:16:40.156859+00:00",
+  "average_uplift_score": 0.0025,
+  "total_incremental_revenue_opportunity": 555329.64,
+  "top_customers": [
+    {
+      "customer_id": "CUST-012389",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.0598477847144092,
+      "incremental_revenue_opportunity": 7048.77
+    },
+    {
+      "customer_id": "CUST-014551",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.05055851387476935,
+      "incremental_revenue_opportunity": 5136.01
+    },
+    {
+      "customer_id": "CUST-000789",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.06512942781645502,
+      "incremental_revenue_opportunity": 4605.49
+    },
+    {
+      "customer_id": "CUST-000206",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.054379897402102334,
+      "incremental_revenue_opportunity": 4497.96
+    },
+    {
+      "customer_id": "CUST-005186",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.033854096333751776,
+      "incremental_revenue_opportunity": 3671.82
+    },
+    {
+      "customer_id": "CUST-013368",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.08028669110269596,
+      "incremental_revenue_opportunity": 3256.0
+    },
+    {
+      "customer_id": "CUST-009452",
+      "segment": "Support-Heavy Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.08153103409241447,
+      "incremental_revenue_opportunity": 3038.06
+    },
+    {
+      "customer_id": "CUST-002672",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.049837200686154264,
+      "incremental_revenue_opportunity": 2957.07
+    },
+    {
+      "customer_id": "CUST-012164",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.050111574343250656,
+      "incremental_revenue_opportunity": 2950.86
+    },
+    {
+      "customer_id": "CUST-004725",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.03746775151145397,
+      "incremental_revenue_opportunity": 2906.8
+    },
+    {
+      "customer_id": "CUST-003803",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.02475285413433874,
+      "incremental_revenue_opportunity": 2857.25
+    },
+    {
+      "customer_id": "CUST-006514",
+      "segment": "At-Risk High-Value Customers",
+      "recommended_action": "assign customer success manager",
+      "uplift_score": 0.11240787959456652,
+      "incremental_revenue_opportunity": 2816.73
+    },
+    {
+      "customer_id": "CUST-010692",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.02979227246757062,
+      "incremental_revenue_opportunity": 2751.51
+    },
+    {
+      "customer_id": "CUST-007553",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.0721867653144161,
+      "incremental_revenue_opportunity": 2689.76
+    },
+    {
+      "customer_id": "CUST-001731",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.03662661599840344,
+      "incremental_revenue_opportunity": 2672.35
+    },
+    {
+      "customer_id": "CUST-002201",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.04925274935027366,
+      "incremental_revenue_opportunity": 2487.75
+    },
+    {
+      "customer_id": "CUST-008305",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.028854201762975866,
+      "incremental_revenue_opportunity": 2454.72
+    },
+    {
+      "customer_id": "CUST-007054",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.027761871233141788,
+      "incremental_revenue_opportunity": 2440.38
+    },
+    {
+      "customer_id": "CUST-007677",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.05247241510178397,
+      "incremental_revenue_opportunity": 2381.03
+    },
+    {
+      "customer_id": "CUST-009087",
+      "segment": "Loyal High-Value Customers",
+      "recommended_action": "prioritize support follow-up",
+      "uplift_score": 0.02015755178496862,
+      "incremental_revenue_opportunity": 2241.69
+    }
+  ]
+}

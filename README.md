@@ -35,6 +35,14 @@ The platform generates a realistic 15,000-customer dataset, trains churn models,
 - SQLite persistence through SQLAlchemy
 - React, TypeScript, and Tailwind dashboard for KPIs, customer intelligence, segmentation, revenue, and model performance
 - Docker setup runnable with one command
+- CSV and Excel upload with schema validation
+- Batch scoring for external customer files
+- Scheduled retraining configuration and manual retraining trigger
+- CRM integration simulation for account, opportunity, and case syncs
+- Model monitoring with drift checks and operational alerts
+- MLflow-style experiment/run registry for model metrics and artifact locations
+- A/B testing analysis for retention actions
+- Uplift modeling report to prioritize customers by incremental revenue opportunity
 
 ## Dataset
 
@@ -133,6 +141,19 @@ Expected revenue saved is calculated as:
 churn_probability x estimated_clv x expected_success_probability - estimated_action_cost
 ```
 
+## Enterprise ML Platform Extensions
+
+The platform also includes operational capabilities expected in a mature customer intelligence system:
+
+- **CSV/Excel upload:** `POST /data/upload` validates external customer files against the model schema.
+- **Batch scoring:** `POST /batch-score/{upload_id}` scores uploaded files and returns churn, CLV, segment, explanation, and next-best-action outputs.
+- **Scheduled retraining:** `GET/POST /retraining/schedule` stores retraining cadence, lookback window, and metric guardrails. `POST /retraining/run` runs the training pipeline on demand.
+- **CRM integration:** `POST /integrations/crm/sync` simulates syncing CRM accounts, opportunities, and support cases into the intelligence workflow.
+- **Model monitoring:** `GET /monitoring/model` reports population health, high-risk rate, drift scores, and alerts.
+- **MLflow:** `GET /mlflow/runs` exposes MLflow-style run metadata, metrics, parameters, and artifact URIs.
+- **A/B testing:** `POST /experiments/ab-tests` calculates retention uplift, incremental retained customers, revenue impact, and launch decision.
+- **Uplift modeling:** `GET /uplift/model` ranks customers by estimated incremental revenue opportunity from recommended actions.
+
 ## Tech Stack
 
 - Python, Pandas, NumPy, scikit-learn, XGBoost, SHAP-compatible explainability structure
@@ -156,6 +177,18 @@ churn_probability x estimated_clv x expected_success_probability - estimated_act
 - `GET /model/performance`
 - `GET /feature-importance`
 - `GET /revenue-at-risk`
+- `POST /data/upload`
+- `POST /batch-score/{upload_id}`
+- `GET /retraining/schedule`
+- `POST /retraining/schedule`
+- `POST /retraining/run`
+- `POST /integrations/crm/sync`
+- `GET /integrations/crm/syncs`
+- `GET /monitoring/model`
+- `GET /mlflow/runs`
+- `GET /experiments/ab-tests`
+- `POST /experiments/ab-tests`
+- `GET /uplift/model`
 
 Interactive API docs are available at `http://localhost:8000/docs`.
 
@@ -169,6 +202,8 @@ Screens included:
 - Segmentation page
 - Revenue intelligence page
 - Model performance page
+- Data operations page for upload, batch scoring, retraining, and CRM sync
+- Experimentation and ML Ops page for monitoring, MLflow runs, A/B testing, and uplift modeling
 
 Screenshot placeholders:
 

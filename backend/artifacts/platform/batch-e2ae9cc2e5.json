@@ -1,0 +1,11 @@
+{
+  "batch_id": "batch-e2ae9cc2e5",
+  "upload_id": "upload-a3fe51763b",
+  "rows_scored": 25,
+  "output_path": "/Users/melisdamlasahin/Documents/New project/enterprise-customer-intelligence/backend/data/batch_scores/batch-e2ae9cc2e5.csv",
+  "average_churn_probability": 0.1853,
+  "high_risk_customers": 2,
+  "revenue_at_risk": 9536.18,
+  "expected_revenue_saved": 1368.94,
+  "created_at": "2026-07-04T12:14:34.540134+00:00"
+}

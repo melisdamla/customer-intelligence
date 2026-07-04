@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-07-04T12:16:40.148471+00:00",
+  "population_size": 15000,
+  "high_risk_rate": 0.1039,
+  "data_drift": [
+    {
+      "feature": "monthly_revenue",
+      "baseline_mean": 243.4524,
+      "current_mean": 243.4524,
+      "drift_score": 0.0,
+      "status": "stable"
+    },
+    {
+      "feature": "engagement_score",
+      "baseline_mean": 29.7978,
+      "current_mean": 29.7978,
+      "drift_score": 0.0,
+      "status": "stable"
+    },
+    {
+      "feature": "support_pressure_score",
+      "baseline_mean": 47.1385,
+      "current_mean": 47.1385,
+      "drift_score": 0.0,
+      "status": "stable"
+    },
+    {
+      "feature": "satisfaction_score",
+      "baseline_mean": 7.4037,
+      "current_mean": 7.4037,
+      "drift_score": 0.0,
+      "status": "stable"
+    },
+    {
+      "feature": "churn_probability",
+      "baseline_mean": 0.1874,
+      "current_mean": 0.1874,
+      "drift_score": 0.0,
+      "status": "stable"
+    }
+  ],
+  "alerts": [],
+  "service_health": "healthy"
+}

@@ -19,5 +19,51 @@ export const api = {
   segments: () => request<SegmentSummary[]>("/segments"),
   performance: () => request<ModelPerformance>("/model/performance"),
   importance: () => request<FeatureImportance[]>("/feature-importance"),
-  revenueRisk: () => request<Record<string, unknown>>("/revenue-at-risk")
+  revenueRisk: () => request<Record<string, unknown>>("/revenue-at-risk"),
+  uploadData: async (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    const response = await fetch(`${API_BASE}/data/upload`, { method: "POST", body: formData });
+    if (!response.ok) throw new Error(`Upload failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  batchScore: (uploadId: string) => request<Record<string, unknown>>(`/batch-score/${uploadId}`),
+  retrainingSchedule: () => request<Record<string, unknown>>("/retraining/schedule"),
+  setRetrainingSchedule: async (payload: Record<string, unknown>) => {
+    const response = await fetch(`${API_BASE}/retraining/schedule`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Schedule update failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  runRetraining: async () => {
+    const response = await fetch(`${API_BASE}/retraining/run`, { method: "POST" });
+    if (!response.ok) throw new Error(`Retraining failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  crmSync: async (payload: Record<string, unknown>) => {
+    const response = await fetch(`${API_BASE}/integrations/crm/sync`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`CRM sync failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  crmSyncs: () => request<Record<string, unknown>[]>("/integrations/crm/syncs"),
+  monitoring: () => request<Record<string, unknown>>("/monitoring/model"),
+  mlflowRuns: () => request<Record<string, unknown>[]>("/mlflow/runs"),
+  abTests: () => request<Record<string, unknown>[]>("/experiments/ab-tests"),
+  createAbTest: async (payload: Record<string, unknown>) => {
+    const response = await fetch(`${API_BASE}/experiments/ab-tests`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`A/B test analysis failed: ${response.status}`);
+    return response.json() as Promise<Record<string, unknown>>;
+  },
+  upliftModel: () => request<Record<string, unknown>>("/uplift/model")
 };
