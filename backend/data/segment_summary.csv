@@ -1,0 +1,7 @@
+segment,customer_count,average_churn_probability,average_clv,revenue_at_risk,average_satisfaction_score,recommended_business_strategy
+At-Risk High-Value Customers,10,0.594,9908.351,58887.78,5.57,Assign senior customer success coverage and resolve blockers before renewal.
+Low-Value Stable Customers,3685,0.098,2811.452,745678.94,8.214,Maintain low-touch nurture and automated health monitoring.
+Loyal High-Value Customers,4438,0.044,26449.141,3319281.13,8.032,"Protect relationship quality, invite advocacy, and expand through premium capabilities."
+New Low-Engagement Customers,243,0.267,1880.59,66155.1,7.195,"Trigger onboarding, training, and activation campaigns in the first lifecycle window."
+Price-Sensitive Customers,2415,0.258,1471.395,494491.11,7.2,"Use targeted discounting, annual plan incentives, and value messaging."
+Support-Heavy Customers,4209,0.372,2110.98,2297505.17,6.166,Prioritize support follow-up and root-cause product enablement.

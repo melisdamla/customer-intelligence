@@ -1,0 +1,40 @@
+{
+  "baseline_logistic_regression": {
+    "accuracy": 0.7518,
+    "precision": 0.0892,
+    "recall": 0.7723,
+    "f1_score": 0.16,
+    "roc_auc": 0.8298,
+    "confusion_matrix": [
+      [
+        2403,
+        796
+      ],
+      [
+        23,
+        78
+      ]
+    ],
+    "threshold": 0.45
+  },
+  "main_xgboost_model": {
+    "accuracy": 0.743,
+    "precision": 0.0827,
+    "recall": 0.7327,
+    "f1_score": 0.1486,
+    "roc_auc": 0.8106,
+    "confusion_matrix": [
+      [
+        2378,
+        821
+      ],
+      [
+        27,
+        74
+      ]
+    ],
+    "threshold": 0.25
+  },
+  "decision_threshold": 0.25,
+  "modeling_note": "Recall is prioritized to surface more high-risk customers for retention action."
+}

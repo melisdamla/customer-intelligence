@@ -1,0 +1,82 @@
+[
+  {
+    "feature": "support_pressure_score",
+    "importance": 0.083
+  },
+  {
+    "feature": "satisfaction_score",
+    "importance": 0.03584
+  },
+  {
+    "feature": "nps_score",
+    "importance": 0.03082
+  },
+  {
+    "feature": "engagement_score",
+    "importance": 0.02686
+  },
+  {
+    "feature": "contract_type_Monthly",
+    "importance": 0.02556
+  },
+  {
+    "feature": "high_value_customer_flag",
+    "importance": 0.02549
+  },
+  {
+    "feature": "late_payments",
+    "importance": 0.02532
+  },
+  {
+    "feature": "payment_risk_score",
+    "importance": 0.0249
+  },
+  {
+    "feature": "feature_usage_score",
+    "importance": 0.02374
+  },
+  {
+    "feature": "gender_Non-binary",
+    "importance": 0.0234
+  },
+  {
+    "feature": "gender_Male",
+    "importance": 0.0229
+  },
+  {
+    "feature": "unresolved_tickets",
+    "importance": 0.02118
+  },
+  {
+    "feature": "number_of_products_used",
+    "importance": 0.02042
+  },
+  {
+    "feature": "monthly_revenue",
+    "importance": 0.01999
+  },
+  {
+    "feature": "subscription_type_Professional",
+    "importance": 0.01912
+  },
+  {
+    "feature": "tenure_group_Established",
+    "importance": 0.01843
+  },
+  {
+    "feature": "average_session_duration",
+    "importance": 0.01807
+  },
+  {
+    "feature": "number_of_logins_last_30_days",
+    "importance": 0.01768
+  },
+  {
+    "feature": "region_Europe",
+    "importance": 0.01754
+  },
+  {
+    "feature": "contract_type_Two-Year",
+    "importance": 0.01713
+  }
+]
